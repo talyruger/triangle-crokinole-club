@@ -1,0 +1,35 @@
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #1a1a1a; /* Updated background color */
+  color: #f0f0f0; /* Updated text color */
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #f0c040; /* Updated heading color */
+}
+
+a {
+  color: #f0c040; /* Updated link color */
+  text-decoration: none;
+  transition: color 0.3s;
+
+  &:hover {
+    color: #ff8c00; /* Updated hover color */
+  }
+}
+
+button {
+  background-color: #ff8c00; /* Updated button background color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #e07b00; /* Updated button hover color */
+  }
+}

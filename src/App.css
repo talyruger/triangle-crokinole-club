@@ -1,0 +1,42 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #1a1a1a; /* Updated header background color */
+  color: #f0c040; /* Updated text color */
+  padding: 1rem;
+}
+
+.main {
+  padding: 2rem; /* Added padding for main content */
+}
+
+.footer {
+  background-color: #1a1a1a; /* Updated footer background color */
+  color: #f0c040; /* Updated footer text color */
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column; /* Stack header items vertically */
+    padding: 1rem; /* Adjust padding */
+  }
+
+  .main {
+    padding: 1rem; /* Adjust main content padding */
+  }
+
+  .footer {
+    padding: 0.5rem; /* Adjust footer padding */
+  }
+}
