@@ -41,14 +41,14 @@ const AffiliateLogo = styled.img`
 `;
 
 const AffiliateTitle = styled.h2`
-  color: ${({ theme }) => theme.colors.primary}; /* Updated color for a more professional look */
+  color: ${({ theme }) => theme.colors.primary}; /* Updated to use theme's primary color */
   font-size: 1.5rem; /* Increased font size */
   margin-bottom: 0.5rem;
 `;
 
 const AffiliateDescription = styled.p`
   font-size: 1rem;
-  color: ${({ theme }) => theme.colors.text}; /* Updated description color */
+  color: ${({ theme }) => theme.colors.text}; /* Updated to use theme's text color */
 `;
 
 const AffiliateButton = styled.a`
@@ -64,6 +64,13 @@ const AffiliateButton = styled.a`
   &:hover {
     background: #f0c040; /* Updated hover color */
   }
+`;
+
+const Heading = styled.h1`
+  color: ${({ theme }) => theme.colors.primary}; /* Updated to use theme's primary color */
+  margin-bottom: 1rem;
+  font-size: 2rem; /* Adjusted font size for mobile */
+  font-weight: 700; /* Increased font weight */
 `;
 
 const Affiliates = () => {
@@ -84,8 +91,8 @@ const Affiliates = () => {
 
   return (
     <AffiliatesContainer>
-      <h1 style={{ color: '#f0c040' }}>Our Trusted Affiliates</h1> {/* Updated heading color */}
-      <p style={{ color: '#b0b0b0' }}>Support these amazing partners who provide top-notch crokinole equipment. Our club is a non-profit organization and is always open to additional affiliates.</p> {/* Updated paragraph color */}
+      <Heading>Our Trusted Affiliates</Heading> {/* Updated to use theme's primary color */}
+      <p>Support these amazing partners who provide top-notch crokinole equipment. Our club is a non-profit organization and is always open to additional affiliates.</p> {/* Updated to use theme's text color */}
       <AffiliateLinks>
         {affiliates.map((affiliate, index) => (
           <AffiliateCard key={index}>

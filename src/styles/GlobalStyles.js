@@ -11,7 +11,7 @@ const GlobalStyles = createGlobalStyle`
   
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Inter', sans-serif;
-    color: #f0c040; /* Golden yellow for headers */
+    color: #000; /* Updated to black for better contrast */
     margin: 0.5rem 0; /* Reduced margin for headers */
   }
 

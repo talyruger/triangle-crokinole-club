@@ -31,7 +31,7 @@ const EventCard = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.25rem;
   transition: transform 0.2s, background-color 0.3s;
 
   &:hover {

@@ -12,7 +12,7 @@ const HowToPlayContainer = styled.div`
 `;
 
 const Heading = styled.h1`
-  color: #f0c040; /* Updated color for a more professional look */
+  color: ${({ theme }) => theme.colors.primary}; /* Updated to use theme's primary color */
   margin-bottom: 1rem;
   font-size: 2rem; /* Adjusted font size for mobile */
   font-weight: 700; /* Increased font weight */
@@ -21,7 +21,7 @@ const Heading = styled.h1`
 const Paragraph = styled.p`
   font-size: 1.1rem; /* Reduced font size */
   line-height: 1.6; /* Reduced line height */
-  color: #b0b0b0; /* Updated paragraph color */
+  color: ${({ theme }) => theme.colors.text}; /* Updated to use theme's text color */
   margin-bottom: 1rem; /* Reduced margin-bottom */
 
   @media (max-width: 768px) {

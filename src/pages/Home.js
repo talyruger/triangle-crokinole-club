@@ -1,4 +1,3 @@
-// src/pages/Home.js
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Events from './Events';
@@ -25,7 +24,7 @@ const HeroSection = styled.section`
   p {
     font-size: 1.2rem;
     margin-bottom: 1rem;
-    color: ${({ theme }) => theme.colors.text};
+    color: white; /* Changed text color to white */
   }
 
   button {
@@ -109,7 +108,7 @@ function Home() {
     <>
       <HeroSection>
         <div>
-          <h1>Welcome to the Triangle Crokinole Club</h1>
+          <h1>Welcome to TRIANGLE Crokinole Club</h1>
           <p>Join us for exciting crokinole games and community events at multiple locations in the Triangle area! Serving Raleigh, Durham, Chapel Hill, and surrounding areas.</p>
           <button onClick={handleButtonClick}>Join our Community</button>
           <button style={{ margin: '0 1rem' }} onClick={() => window.open('https://www.facebook.com/groups/248685788265073', '_blank')}>
