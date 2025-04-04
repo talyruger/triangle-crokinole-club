@@ -67,6 +67,11 @@ const EventDetails = styled.div`
   text-align: center;
 `;
 
+const DateText = styled.p`
+  color: ${({ isToday }) => (isToday ? '#ff0000' : '#000000')}; /* Highlight today's date in red */
+  font-weight: ${({ isToday }) => (isToday ? 'bold' : 'normal')};
+`;
+
 const getNextMonthlyDates = (day, week, count) => {
   const dates = [];
   const today = new Date();
@@ -79,8 +84,8 @@ const getNextMonthlyDates = (day, week, count) => {
       nextDate.setDate(nextDate.getDate() + 1);
     }
 
-    // Only add dates that are in the future
-    if (nextDate > today) {
+    // Add dates that are in the future or today
+    if (nextDate >= today) {
       dates.push(new Date(nextDate));
     }
 
@@ -109,8 +114,8 @@ const getNextTwoMondays = () => {
       if (date.getDay() === 1) { // Check if it's Monday
         mondayCount++;
         
-        // Only add dates that are in the future
-        if (date > today && (mondayCount === 2 || mondayCount === 4)) {
+        // Add dates that are in the future or today
+        if (date >= today && (mondayCount === 2 || mondayCount === 4)) {
           dates.push(new Date(date));
         }
       }
@@ -164,6 +169,9 @@ const Events = () => {
     },
   ];
 
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
   return (
     <EventsContainer>
       <h1 style={{ color: '#f0c040', textAlign: 'center' }}>Upcoming Crokinole Events</h1> {/* Updated heading color and centered */}
@@ -179,9 +187,9 @@ const Events = () => {
                 <h3>{event.title}</h3>
                 <p>Next Crokinole Game Dates:</p>
                 {nextDates.map((date, i) => (
-                  <div key={i}>
-                    <p>{date.toDateString()} at {event.time}</p>
-                  </div>
+                  <DateText key={i} isToday={date.getTime() === today.getTime()}>
+                    {date.toDateString()} at {event.time}
+                  </DateText>
                 ))}
                 <a href={event.link} target="_blank" rel="noopener noreferrer">View on Google Maps</a>
               </EventDetails>

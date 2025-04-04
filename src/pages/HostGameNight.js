@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const HostGameNightContainer = styled.div`
@@ -108,7 +108,47 @@ const ContactInfo = styled.p`
   }
 `;
 
+const TestimonialsSection = styled.section`
+  margin-top: 3rem;
+  text-align: left;
+`;
+
+const TestimonialCard = styled.div`
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  margin-bottom: 1rem;
+`;
+
+const TestimonialText = styled.p`
+  font-size: 1rem;
+  color: #555555;
+`;
+
+const TestimonialAuthor = styled.p`
+  font-size: 0.9rem;
+  color: #333333;
+  font-weight: bold;
+  text-align: right;
+`;
+
 const HostGameNight = () => {
+  const [testimonials] = useState([
+    {
+      text: "Our dental practice of 35 employees recently had an outstanding office outing hosted by TCC, with multiple boards to play on and three experts on hand from the club to teach (Joe, Joe R., and Dean) everyone was having a great time playing together right away. The event and the game of crokinole itself was such a hit.. many of us have continued to play ever since. We highly recommend Triangle Crokinole Club for your next corporate event.",
+      author: (
+        <>
+          William Daily | Williams, Daily & Frazier Dental | Carolina Implant (
+          <a href="https://carolinaimplant.com" target="_blank" rel="noopener noreferrer">
+            carolinaimplant.com
+          </a>
+          )
+        </>
+      )
+    }
+  ]);
+
   return (
     <HostGameNightContainer>
       <Title>Host a Crokinole Game Night with Triangle Crokinole Club</Title>
@@ -136,17 +176,17 @@ const HostGameNight = () => {
           <tr>
             <td>Basic Package</td>
             <td>Includes game boards, materials, and basic instruction.</td>
-            <td>$249</td>
+            <td>$250</td>
           </tr>
           <tr>
             <td>Standard Package</td>
             <td>Includes everything in the Basic Package plus event management and scoring.</td>
-            <td>$449</td>
+            <td>$450</td>
           </tr>
           <tr>
             <td>Premium Package</td>
             <td>Includes everything in the Standard Package plus customizable themes and team-building activities.</td>
-            <td>$599</td>
+            <td>$600</td>
           </tr>
         </tbody>
       </PricingTable>
@@ -155,8 +195,17 @@ const HostGameNight = () => {
       </Description>
       <ContactInfo>
         <strong>Phone:</strong> 440-476-2315 / 765-775-0467<br />
-        <strong>Email:</strong> trianglecrokinolenc@gmail.com
+        <strong>Email:</strong> info@trianglecrokinoleclub.com
       </ContactInfo>
+      <TestimonialsSection>
+        <Title>Customer Testimonials</Title>
+        {testimonials.map((testimonial, index) => (
+          <TestimonialCard key={index}>
+            <TestimonialText>"{testimonial.text}"</TestimonialText>
+            <TestimonialAuthor>- {testimonial.author}</TestimonialAuthor>
+          </TestimonialCard>
+        ))}
+      </TestimonialsSection>
     </HostGameNightContainer>
   );
 };
