@@ -194,7 +194,7 @@ const HostGameNight = () => {
         For inquiries and to book your unforgettable crokinole event, please contact us at:
       </Description>
       <ContactInfo>
-        <strong>Phone:</strong> 440-476-2315 / 765-775-0467<br />
+        <strong>Phone:</strong> 440-476-2315<br />
         <strong>Email:</strong> info@trianglecrokinoleclub.com
       </ContactInfo>
       <TestimonialsSection>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import emailjs from 'emailjs-com';
+import emailjs from '@emailjs/browser';
 
 const ModalOverlay = styled.div`
   position: fixed;
