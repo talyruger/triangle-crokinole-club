@@ -168,15 +168,13 @@ const Events = () => {
       description: 'Join us at White Street Brewing Co for a fun evening of crokinole!'
     },
     {
-      day: 1, // Monday
-      weeks: [2, 4], // 2nd and 4th week of the month
-      title: 'Northern Wake Senior Center',
+      day: 3, // Wednesday
+      week: 3, // 3rd week of the month
+      title: 'Wake Forest Center for Active Aging', // Updated name
       link: 'https://g.co/kgs/6gbT7Uy',
       logo: seniorCenterLogo,
-      biMonthly: true,
-      time: '3:00 PM - 5:00 PM',
-      description: 'Join us at Northern Wake Senior Center for a fun afternoon of crokinole!',
-      nextDates: getNextTwoMondays()
+      time: '2:00 PM - 4:00 PM', // Updated time
+      description: 'Join us at Wake Forest Center for Active Aging for a fun afternoon of crokinole!' // Updated name
     },
   ];
 
@@ -193,9 +191,7 @@ const Events = () => {
       <h1 style={{ color: '#f0c040', textAlign: 'center', marginTop: '2rem' }}>Regular Crokinole Events</h1>
       <EventList style={{ gap: '1rem' }}>
         {events.map((event, index) => {
-          const nextDates = event.biMonthly
-            ? event.nextDates
-            : getNextMonthlyDates(event.day, event.week, 2);
+          const nextDates = getNextMonthlyDates(event.day, event.week, 2);
           return (
             <EventCard key={index}>
               <img src={event.logo} alt={`${event.title} logo`} />
