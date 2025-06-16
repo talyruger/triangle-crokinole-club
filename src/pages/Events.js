@@ -96,36 +96,41 @@ const getNextMonthlyDates = (day, week, count) => {
   return dates;
 };
 
-const getNextTwoMondays = () => {
-  const dates = [];
+// Function to get next dates for locations with multiple schedules
+const getMultiLocationDates = (locations, count) => {
+  const allDates = [];
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
   let monthOffset = 0;
-  while (dates.length < 2) {
-    const month = today.getMonth() + monthOffset;
-    const year = today.getFullYear() + Math.floor(month / 12);
-    const adjustedMonth = month % 12;
-
-    let mondayCount = 0;
-    for (let day = 1; day <= 31; day++) {
-      const date = new Date(year, adjustedMonth, day);
-      if (date.getMonth() !== adjustedMonth) break; // Stop if we go to the next month
+  while (allDates.length < count) {
+    for (const location of locations) {
+      const { day, weeks, time } = location;
       
-      if (date.getDay() === 1) { // Check if it's Monday
-        mondayCount++;
-        
+      for (const week of weeks) {
+        const nextDate = new Date(today.getFullYear(), today.getMonth() + monthOffset, 1);
+        // Find the date that matches the day and week
+        while (nextDate.getDay() !== day || Math.ceil(nextDate.getDate() / 7) !== week) {
+          nextDate.setDate(nextDate.getDate() + 1);
+        }
+
         // Add dates that are in the future or today
-        if (date >= today && (mondayCount === 2 || mondayCount === 4)) {
-          dates.push(new Date(date));
+        if (nextDate >= today) {
+          allDates.push({ date: new Date(nextDate), time });
         }
       }
     }
 
     monthOffset++;
+    
+    // Sort the dates and keep only the first 'count' dates
+    allDates.sort((a, b) => a.date - b.date);
+    if (allDates.length > count) {
+      allDates.length = count;
+    }
   }
 
-  return dates;
+  return allDates;
 };
 
 const tournaments = [
@@ -168,13 +173,22 @@ const Events = () => {
       description: 'Join us at White Street Brewing Co for a fun evening of crokinole!'
     },
     {
-      day: 3, // Wednesday
-      week: 3, // 3rd week of the month
-      title: 'Wake Forest Center for Active Aging', // Updated name
+      locations: [
+        {
+          day: 1, // Monday
+          weeks: [2, 4], // 2nd and 4th week of the month
+          time: '2:00 PM - 4:00 PM'
+        },
+        {
+          day: 3, // Wednesday
+          weeks: [3], // 3rd week of the month
+          time: '2:00 PM - 4:00 PM'
+        }
+      ],
+      title: 'Wake Forest Center for Active Aging',
       link: 'https://g.co/kgs/6gbT7Uy',
       logo: seniorCenterLogo,
-      time: '2:00 PM - 4:00 PM', // Updated time
-      description: 'Join us at Wake Forest Center for Active Aging for a fun afternoon of crokinole!' // Updated name
+      description: 'Join us at Wake Forest Center for Active Aging for a fun afternoon of crokinole!'
     },
   ];
 
@@ -191,18 +205,38 @@ const Events = () => {
       <h1 style={{ color: '#f0c040', textAlign: 'center', marginTop: '2rem' }}>Regular Crokinole Events</h1>
       <EventList style={{ gap: '1rem' }}>
         {events.map((event, index) => {
-          const nextDates = getNextMonthlyDates(event.day, event.week, 2);
+          let nextDates = [];
+          if (event.locations) {
+            try {
+              nextDates = getMultiLocationDates(event.locations, 4);
+            } catch (e) {
+              nextDates = [];
+            }
+          } else if (typeof event.day === 'number' && typeof event.week === 'number') {
+            try {
+              nextDates = getNextMonthlyDates(event.day, event.week, 2).map(date => ({
+                date,
+                time: event.time
+              }));
+            } catch (e) {
+              nextDates = [];
+            }
+          }
           return (
             <EventCard key={index}>
               <img src={event.logo} alt={`${event.title} logo`} />
               <EventDetails>
                 <h3>{event.title}</h3>
                 <p>Next Crokinole Game Dates:</p>
-                {nextDates.map((date, i) => (
-                  <DateText key={i} isToday={date.getTime() === today.getTime()}>
-                    {date.toDateString()} at {event.time}
-                  </DateText>
-                ))}
+                {nextDates && nextDates.length > 0 ? (
+                  nextDates.map((dateObj, i) => (
+                    <DateText key={i} isToday={dateObj.date.getTime() === today.getTime()}>
+                      {dateObj.date.toDateString()} at {dateObj.time}
+                    </DateText>
+                  ))
+                ) : (
+                  <DateText>No upcoming dates found.</DateText>
+                )}
                 <a href={event.link} target="_blank" rel="noopener noreferrer">View on Google Maps</a>
               </EventDetails>
             </EventCard>
