@@ -129,12 +129,12 @@ const getNextTwoMondays = () => {
 };
 
 const tournaments = [
-  {
-    name: 'Flag Day Doubles Tournament',
-    date: '2025-06-15',
-    registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLScboaNUUZ8jDFcLdi71Ybx-y6Il9RqtrRuqp-qTKv90UYmS8w/viewform?usp=header',
-    description: 'Join us for our annual Flag Day Doubles Tournament! Teams of 2, all skill levels welcome.'
-  }
+  // {
+  //   name: 'Flag Day Doubles Tournament',
+  //   date: '2025-06-15',
+  //   registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLScboaNUUZ8jDFcLdi71Ybx-y6Il9RqtrRuqp-qTKv90UYmS8w/viewform?usp=header',
+  //   description: 'Join us for our annual Flag Day Doubles Tournament! Teams of 2, all skill levels welcome.'
+  // }
   // Additional tournaments can be added here
 ];
 
@@ -183,10 +183,10 @@ const Events = () => {
 
   return (
     <EventsContainer>
-      <h1 style={{ color: '#f0c040', textAlign: 'center' }}>Upcoming Tournaments</h1>
+      {/* <h1 style={{ color: '#f0c040', textAlign: 'center' }}>Upcoming Tournaments</h1>
       {tournaments.map((tournament, index) => (
         <TournamentCard key={`tournament-${index}`} tournament={tournament} />
-      ))}
+      ))} */}
       
       <h1 style={{ color: '#f0c040', textAlign: 'center', marginTop: '2rem' }}>Regular Crokinole Events</h1>
       <EventList style={{ gap: '1rem' }}>
