@@ -73,6 +73,16 @@ const DateText = styled.p`
   font-weight: ${({ isToday }) => (isToday ? 'bold' : 'normal')};
 `;
 
+// List of dates to exclude (format: 'YYYY-MM-DD')
+const excludedDates = ['2025-07-03'];
+
+const isExcluded = (date) => {
+  const y = date.getFullYear();
+  const m = String(date.getMonth() + 1).padStart(2, '0');
+  const d = String(date.getDate()).padStart(2, '0');
+  return excludedDates.includes(`${y}-${m}-${d}`);
+};
+
 const getNextMonthlyDates = (day, week, count) => {
   const dates = [];
   const today = new Date();
@@ -84,15 +94,11 @@ const getNextMonthlyDates = (day, week, count) => {
     while (nextDate.getDay() !== day || Math.ceil(nextDate.getDate() / 7) !== week) {
       nextDate.setDate(nextDate.getDate() + 1);
     }
-
-    // Add dates that are in the future or today
-    if (nextDate >= today) {
+    if (nextDate >= today && !isExcluded(nextDate)) {
       dates.push(new Date(nextDate));
     }
-
     monthOffset++;
   }
-
   return dates;
 };
 
@@ -106,30 +112,22 @@ const getMultiLocationDates = (locations, count) => {
   while (allDates.length < count) {
     for (const location of locations) {
       const { day, weeks, time } = location;
-      
       for (const week of weeks) {
         const nextDate = new Date(today.getFullYear(), today.getMonth() + monthOffset, 1);
-        // Find the date that matches the day and week
         while (nextDate.getDay() !== day || Math.ceil(nextDate.getDate() / 7) !== week) {
           nextDate.setDate(nextDate.getDate() + 1);
         }
-
-        // Add dates that are in the future or today
-        if (nextDate >= today) {
+        if (nextDate >= today && !isExcluded(nextDate)) {
           allDates.push({ date: new Date(nextDate), time });
         }
       }
     }
-
     monthOffset++;
-    
-    // Sort the dates and keep only the first 'count' dates
     allDates.sort((a, b) => a.date - b.date);
     if (allDates.length > count) {
       allDates.length = count;
     }
   }
-
   return allDates;
 };
 
@@ -177,7 +175,7 @@ const Events = () => {
         {
           day: 1, // Monday
           weeks: [2, 4], // 2nd and 4th week of the month
-          time: '2:00 PM - 4:00 PM'
+          time: '3:00 PM - 5:00 PM'
         },
         {
           day: 3, // Wednesday
