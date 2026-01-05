@@ -4,6 +4,8 @@ import fortnightLogo from '../assets/logos/FortnightLogo.png';
 import blackbirdLogo from '../assets/logos/BlackbirdLogo.png';
 import whiteStreetLogo from '../assets/logos/WhiteStreetLogo.png';
 import seniorCenterLogo from '../assets/logos/NWSlogo.jpeg';
+import rdBrewingLogo from '../assets/logos/R&DBrewingLogo.png';
+import rolesvilleLogo from '../assets/logos/RolesvilleCommunityCenterLogo.png';
 import TournamentCard from '../components/TournamentCard';
 
 const EventsContainer = styled.div`
@@ -187,6 +189,33 @@ const Events = () => {
       link: 'https://g.co/kgs/6gbT7Uy',
       logo: seniorCenterLogo,
       description: 'Join us at Wake Forest Center for Active Aging for a fun afternoon of crokinole!'
+    },
+    {
+      day: 0, // Sunday
+      week: 4, // 4th week of the month
+      title: 'R&D Brewing - Seven Saturdays Taproom',
+      link: 'https://share.google/0XtCdmQ7LwYgnlJjT',
+      logo: rdBrewingLogo,
+      time: '3:00 PM - 5:00 PM',
+      description: 'Join us at R&D Brewing - Seven Saturdays Taproom for a fun afternoon of crokinole!'
+    },
+    {
+      locations: [
+        {
+          day: 4, // Thursday
+          weeks: [2], // 2nd week of the month
+          time: '10:00 AM - 11:30 AM'
+        },
+        {
+          day: 4, // Thursday
+          weeks: [4], // 4th week of the month
+          time: '2:00 PM - 3:30 PM'
+        }
+      ],
+      title: 'Rolesville Community Center',
+      link: 'https://share.google/Xv8KrCFsaWlFoE34n',
+      logo: rolesvilleLogo,
+      description: 'Join us at Rolesville Community Center (514 Southtown Circle, Rolesville, NC) for a fun time of crokinole!'
     },
   ];
 
