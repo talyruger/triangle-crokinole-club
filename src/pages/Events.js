@@ -209,7 +209,7 @@ const Events = () => {
         {
           day: 4, // Thursday
           weeks: [4], // 4th week of the month
-          time: '2:00 PM - 3:30 PM'
+          time: '1:00 PM - 2:30 PM'
         }
       ],
       title: 'Rolesville Community Center',
