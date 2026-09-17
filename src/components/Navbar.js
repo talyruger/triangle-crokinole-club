@@ -8,8 +8,8 @@ const NavbarWrapper = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem 2rem; /* Reduced padding to decrease space */
-  background-color: #1a1a1a; /* Updated navbar background color */
-  color: #f0c040; /* Updated text color */
+  background-color: #2d2d2d;
+  color: #cdb87d;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -40,7 +40,7 @@ const MenuIcon = styled.div`
   div {
     width: 25px;
     height: 3px;
-    background-color: #f0c040; /* Updated menu icon color */
+    background-color: #cdb87d;
     margin: 5px;
     transition: 0.4s;
   }
@@ -51,14 +51,14 @@ const MenuLinks = styled.div`
   align-items: center;
 
   a {
-    color: #f0c040; /* Updated link color */
+    color: #cdb87d;
     margin-left: 2rem;
-    font-weight: bold;
+    font-weight: 500;
     transition: color 0.3s;
 
     &:hover {
-      color: #ff8c00; /* Updated hover color */
-      text-decoration: underline;
+      color: #e8d9b4;
+      text-decoration: none;
     }
   }
 
@@ -76,15 +76,15 @@ const MenuLinks = styled.div`
 `;
 
 const JoinUsLink = styled.a`
-  color: #f0c040;
+  color: #cdb87d;
   margin-left: 2rem;
-  font-weight: bold;
+  font-weight: 500;
   cursor: pointer;
   transition: color 0.3s;
 
   &:hover {
-    color: #ff8c00;
-    text-decoration: underline;
+    color: #e8d9b4;
+    text-decoration: none;
   }
 
   @media (max-width: 768px) {

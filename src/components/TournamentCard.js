@@ -9,7 +9,7 @@ const TournamentCard = styled.div`
   border-radius: 10px;
   background: linear-gradient(rgba(249, 249, 249, 0.8), rgba(249, 249, 249, 0.8)), 
               url(${flagDayLogo}) center/cover no-repeat;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,7 +21,8 @@ const TournamentCard = styled.div`
   max-width: none;
 
   &:hover {
-    transform: scale(1.02);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
   }
 
   @media (max-width: 768px) {

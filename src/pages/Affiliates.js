@@ -10,7 +10,7 @@ const AffiliatesContainer = styled.div`
   text-align: center;
   background-color: #ffffff;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
 `;
 
 const AffiliateLinks = styled.div`
@@ -23,13 +23,14 @@ const AffiliateLinks = styled.div`
 const AffiliateCard = styled.div`
   background: #f9f9f9; /* Updated background color */
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   padding: 1rem;
   text-align: left;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 
   &:hover {
-    transform: scale(1.05); /* Scale effect on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
   }
 `;
 
@@ -55,14 +56,15 @@ const AffiliateButton = styled.a`
   display: inline-block;
   padding: 0.75rem 1.5rem; /* Increased padding for better visibility */
   margin-top: 0.5rem;
-  background: #1a1a1a; /* Updated button color to match footer */
+  background: #2d2d2d;
   color: #fff;
   text-decoration: none;
-  border-radius: 4px;
-  transition: background 0.3s ease;
+  border-radius: 6px;
+  transition: background 0.3s ease, opacity 0.2s;
 
   &:hover {
-    background: #f0c040; /* Updated hover color */
+    background: #4a4a4a;
+    color: #fff;
   }
 `;
 
@@ -70,7 +72,7 @@ const Heading = styled.h1`
   color: ${({ theme }) => theme.colors.primary}; /* Updated to use theme's primary color */
   margin-bottom: 1rem;
   font-size: 2rem; /* Adjusted font size for mobile */
-  font-weight: 700; /* Increased font weight */
+  font-weight: 600;
 `;
 
 const Affiliates = () => {

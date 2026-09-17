@@ -33,7 +33,7 @@ const CloseButton = styled.button`
   top: 1rem;
   right: 1rem;
   cursor: pointer;
-  color: #f0c040; /* Updated close button color */
+  color: #999;
 `;
 
 const Form = styled.form`
@@ -58,16 +58,17 @@ const TextArea = styled.textarea`
 `;
 
 const SubmitButton = styled.button`
-  background-color: #ff8c00; /* Updated submit button background color */
+  background-color: #c07a3a;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   padding: 0.75rem 1.5rem;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, opacity 0.2s;
 
   &:hover {
-    background-color: #e07b00; /* Updated submit button hover color */
+    background-color: #a06830;
+    opacity: 0.92;
   }
 `;
 

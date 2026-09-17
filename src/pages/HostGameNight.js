@@ -8,7 +8,7 @@ const HostGameNightContainer = styled.div`
   text-align: center;
   background-color: #ffffff; /* Updated background color */
   border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
 
   @media (max-width: 768px) {
     padding: 1rem; /* Adjust padding for mobile */
@@ -16,7 +16,7 @@ const HostGameNightContainer = styled.div`
 `;
 
 const Title = styled.h1`
-  color: #f0c040; /* Updated title color */
+  color: #b8973a;
   margin-bottom: 1rem;
 
   @media (max-width: 768px) {
@@ -51,7 +51,7 @@ const ServicesList = styled.ul`
 
     &::before {
       content: '•';
-      color: #f0c040;
+      color: #b8973a;
       position: absolute;
       left: 0;
       font-size: 1.5rem;
@@ -79,7 +79,7 @@ const PricingTable = styled.table`
   }
 
   th {
-    background-color: #f0c040;
+    background-color: #b8973a;
     color: #ffffff;
   }
 
@@ -100,7 +100,7 @@ const ContactInfo = styled.p`
   margin-top: 2rem;
 
   strong {
-    color: #f0c040;
+    color: #b8973a;
   }
 
   @media (max-width: 768px) {
@@ -116,7 +116,7 @@ const TestimonialsSection = styled.section`
 const TestimonialCard = styled.div`
   background: #f9f9f9;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   padding: 1rem;
   margin-bottom: 1rem;
 `;

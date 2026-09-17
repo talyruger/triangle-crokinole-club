@@ -1,11 +1,11 @@
 export const theme = {
   colors: {
-    background: '#ffffff',
-    primary: '#f0c040', // Updated to black for headings
-    secondary: '#ff8c00', // Orange
-    accent: '#1a1a1a', // Black
-    text: '#333', // Updated to dark gray for better contrast
-    link: '#ff8c00', // Orange for links
-    hover: '#e07b00', // Darker orange for hover effects
+    background: '#faf8f5',
+    primary: '#b8973a',
+    secondary: '#c07a3a',
+    accent: '#2d2d2d',
+    text: '#555',
+    link: '#8a7040',
+    hover: '#a06830',
   },
 };

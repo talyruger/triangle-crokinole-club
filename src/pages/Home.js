@@ -10,49 +10,52 @@ const HeroSection = styled.section`
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 2rem;
-  background: #1a1a1a;
-  color: white;
+  padding: 2.5rem 2rem;
+  background: #2d2d2d;
+  color: #e0dbd4;
 
   h1 {
-    font-size: 2.2rem;
+    font-size: 2rem;
     margin-bottom: 1rem;
-    font-weight: 700;
-    color: ${({ theme }) => theme.colors.primary};
+    font-weight: 600;
+    color: #cdb87d;
+    letter-spacing: 0.02em;
   }
 
   p {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     margin-bottom: 1rem;
-    color: white; /* Changed text color to white */
+    color: #c5c0b8;
+    line-height: 1.6;
   }
 
   button {
     background-color: ${({ theme }) => theme.colors.secondary};
     color: white;
     border: none;
-    border-radius: 5px;
-    padding: 1rem 2.0rem;
+    border-radius: 6px;
+    padding: 0.85rem 1.8rem;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
+    transition: background-color 0.3s, opacity 0.2s;
     margin-top: 1rem;
     margin-bottom: 1rem;
+    font-weight: 500;
 
     &:hover {
       background-color: ${({ theme }) => theme.colors.hover};
-      transform: scale(1.05);
+      opacity: 0.92;
     }
   }
 
   @media (max-width: 768px) {
-    padding: 1rem;
+    padding: 1.5rem 1rem;
     
     h1 {
-      font-size: 2rem;
+      font-size: 1.7rem;
     }
 
     p {
-      font-size: 1rem;
+      font-size: 0.95rem;
     }
   }
 `;
@@ -64,7 +67,7 @@ const ContentSection = styled.section`
   text-align: center;
   background-color: #ffffff;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
   margin-top: -2rem;
 
   h2 {

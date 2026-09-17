@@ -10,14 +10,14 @@ const SECClubsContainer = styled.div`
   text-align: center;
   background-color: #ffffff;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
 `;
 
 const Heading = styled.h1`
   color: ${({ theme }) => theme.colors.primary};
   margin-bottom: 1rem;
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 600;
 `;
 
 const SubHeading = styled.h2`
